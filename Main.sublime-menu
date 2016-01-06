@@ -17,12 +17,12 @@
                         [
                             {
                                 "command": "open_file",
-                                "args": {"file": "${packages}/Fold Comments/foldcomments.sublime-settings"},
+                                "args": {"file": "${packages}/Fold Comments/Fold Comments.sublime-settings"},
                                 "caption": "FoldComments Settings – Default"
                             },
                             {
                                 "command": "open_file",
-                                "args": {"file": "${packages}/User/foldcomments.sublime-settings"},
+                                "args": {"file": "${packages}/User/Fold Comments.sublime-settings"},
                                 "caption": "FoldComments Settings – User"
                             },
                             { "caption": "-" },

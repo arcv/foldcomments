@@ -1,5 +1,6 @@
 from sublime import Region, Settings, load_settings
 import sublime_plugin
+import os
 
 from itertools import tee, chain
 
@@ -106,7 +107,7 @@ class CommentNodes:
 
     def __init__(self, view):
         self.comments = None # collection of Region objects
-        self.settings = load_settings("foldcomments.sublime-settings")
+        self.settings = load_settings("Fold Comments.sublime-settings")
         self.view = view
         self.find_comments()
         self.apply_settings()
@@ -185,3 +186,9 @@ class UnfoldCommentsCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         comments = CommentNodes(self.view)
         comments.unfold()
+
+class FoldOnLoadListener(sublime_plugin.EventListener):
+    def on_load(self, view):
+        comments = CommentNodes(view)
+        if(comments.settings.get('fold_on_load')):
+            comments.fold()
